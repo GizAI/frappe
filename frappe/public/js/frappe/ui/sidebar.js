@@ -139,7 +139,8 @@ frappe.ui.Sidebar = class Sidebar {
 		let match = false;
 		const that = this;
 		$(".item-anchor").each(function () {
-			if ($(this).attr("title") == active_module) {
+			const originalTitle = $(this).closest(".sidebar-item-container").attr("item-title");
+			if (originalTitle == active_module) {
 				match = true;
 				if (that.active_item) that.active_item.removeClass("active-sidebar");
 				that.active_item = $(this).parent();
